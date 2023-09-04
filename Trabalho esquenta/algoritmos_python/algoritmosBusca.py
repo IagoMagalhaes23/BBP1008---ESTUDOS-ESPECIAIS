@@ -31,7 +31,6 @@ def buscaQuadratica(vet, posicao, entrou, contador, numeroProcurado):
         j = i
         while(j < len(vet)):
             if(vet[i] == numeroProcurado):
-                print(vet[i])
                 if(entrou == False):
                     posicao = i
                     if(vet[j] == numeroProcurado):
@@ -40,23 +39,76 @@ def buscaQuadratica(vet, posicao, entrou, contador, numeroProcurado):
         if(contador > 0):
             entrou = True
     if(entrou):
-        return print('Posição: {} - contador de repetição: {}'.format(posicao, contador))
+        print('Posição: {} - contador de repetição: {}'.format(posicao, contador))
 
 
-def buscaSequencial():
+def buscaSequencialv1(vet, numeroProcurado):
     '''
     
     '''
-    pass
+    indice = -1
+    for i in range(len(vet)):
+        if(vet[i] == numeroProcurado):
+            indice = i
+    return indice
 
-def buscaTernaria():
+def buscaSequencialv2(vet, numeroProcurado):
     '''
     
     '''
-    pass
+    indice = -1
+    for i in range(len(vet)):
+        if(vet[i] == numeroProcurado):
+            return i
+    return -1
 
-def pesquisaBinaria():
+def buscaTernaria(vet, numeroProcurado, n):
     '''
     
     '''
-    pass
+    inicio = 0
+    fim = n -1
+    print(inicio)
+    print(fim)
+    while(inicio <= fim):
+        meio_esquerdo = inicio + (fim + inicio) / 3
+        meio_direito = fim - (fim - inicio) / 3
+        meio_esquerdo = int(meio_esquerdo)
+        meio_direito = int(meio_direito)
+        print(meio_direito)
+        print(meio_esquerdo)
+
+        if(vet[meio_esquerdo] == numeroProcurado):
+            return meio_esquerdo
+        elif(vet[meio_direito] == meio_direito):
+            return meio_direito
+        elif(vet[meio_esquerdo] > numeroProcurado):
+            fim = meio_esquerdo - 1
+        else:
+            inicio = meio_esquerdo + 1
+            fim = meio_direito - 1
+    
+    return -1
+
+def pesquisaBinariaAux(vet, numeroProcurado, e, d):
+    meio = (e + d) / 2
+    meio = int(meio)
+    if(vet[meio] == numeroProcurado):
+        return vet[meio]
+    if(e >= d):
+        return 'oi'
+
+def pesquisaBinaria(vet, numeroProcurado, e, d):
+    '''
+    
+    '''
+    meio = (e + d) // 2
+    # meio = int(meio)
+    if(vet[meio] == numeroProcurado):
+        return meio
+    if(e >= d):
+        return -1
+    elif(vet[meio] < numeroProcurado):
+        return pesquisaBinaria(vet, numeroProcurado, meio + 1, d)
+    else:
+        return pesquisaBinaria(vet, numeroProcurado, e, meio - 1)
