@@ -29,13 +29,13 @@ for arq in arquivosOrdenadosLidos:
         pass
     else:
         # try:
-            # vet = fct.carregaArquivo(arq)
-            vet = [1,2,3,4,5,6,7,10,30,50]
+            vet = fct.carregaArquivo(arq)
+            # vet = [1,2,3,4,5,6,7,10,30,50]
             # print((len(vet) / 2) + 1)
             mediaTempo = 0
             for i in range(0,2):
                 inicio = time.time()
-                a = alg.buscaTernaria(vet, numeroProcurado, vet[int((len(vet) / 2) + 1)])
+                a = alg.buscaTernaria(vet[0], numeroProcurado, vet[0][int((len(vet) / 2) + 1)])
                 print(a)
                 fim = time.time()
                 memoria.append(fct.memoryUse())
