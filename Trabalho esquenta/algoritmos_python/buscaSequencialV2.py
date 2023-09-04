@@ -33,7 +33,7 @@ for arq in arquivosOrdenadosLidos:
             mediaTempo = 0
             for i in range(0,2):
                 inicio = time.time()
-                alg.buscaCubica(vet[0], posicao,13)
+                a = alg.buscaSequencialv2(vet[0], numeroProcurado)
                 fim = time.time()
                 memoria.append(fct.memoryUse())
                 tempo = fim - inicio

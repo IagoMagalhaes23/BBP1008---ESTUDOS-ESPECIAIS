@@ -53,8 +53,9 @@ for arq in arquivosOrdenadosLidos:
         try:
             data = fct.carregaArquivo(arq)
             vet = []
-            for i in data:
+            for i in data[0]:
                 vet.append(int(i))
+            # vet = [1,2,3,4,5,6,7,10,30,50]
             mediaTempo = 0
             for i in range(0,10):
                 inicio = time.time()
