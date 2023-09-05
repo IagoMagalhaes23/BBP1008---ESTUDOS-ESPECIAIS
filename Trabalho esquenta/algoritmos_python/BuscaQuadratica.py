@@ -6,12 +6,13 @@ import time
 import os, psutil
 import pandas as pd
 import functions as fct
+import algoritmosBusca as alg
 
 process = psutil.Process()
 
 caminhoOrdenados = '../ordenados/ordenados/'
 caminhoNOrdenados = '../Nao_ordenados/Nao_ordenados/'
-numeroProcurado = 2
+numeroProcurado = 50
 posicao = -1
 entrou = False
 contador = 0
@@ -21,45 +22,21 @@ memoria = []
 #-----------------------------------------------
 # INICIANDO ÁNALISE DO ALGORITMO
 
-def buscaQuadratica(vet, posicao, entrou, contador):
-    '''
-        Função que realiza a busca quadratica
-        :param vet: parâmetro que recebe um array com os dados para realizar a busca
-        :param posicao: parâmetro com o valor a ser pesquisado
-    '''
-
-    for i in range(len(vet)):
-        j = i
-        while(j < len(vet)):
-            if(vet[i] == numeroProcurado):
-                print(vet[i])
-                if(entrou == False):
-                    posicao = i
-                    if(vet[j] == numeroProcurado):
-                        contador = contador + 1
-            j = j + 1
-        if(contador > 0):
-            entrou = True
-    if(entrou):
-        return print('Posição: {} - contador de repetição: {}'.format(posicao, contador))
-
 arquivosOrdenadosLidos = fct.listFiles(caminhoOrdenados)
 arquivosNOrdenadosLidos = fct.listFiles(caminhoNOrdenados)
 
 for arq in arquivosOrdenadosLidos:
+    print('Arquivo lido {}'.format(arq))
     if(arq == '../ordenados/ordenados/10000000.txt' or arq == '../ordenados/ordenados/100000000.txt'):
         pass
     else:
         try:
-            data = fct.carregaArquivo(arq)
-            vet = []
-            for i in data[0]:
-                vet.append(int(i))
+            vet = fct.carregaArquivo(arq)
             # vet = [1,2,3,4,5,6,7,10,30,50]
             mediaTempo = 0
             for i in range(0,10):
                 inicio = time.time()
-                buscaQuadratica(vet, posicao, entrou, contador)
+                alg.buscaQuadratica(vet[0], posicao, entrou, contador, numeroProcurado)
                 fim = time.time()
                 memoria.append(fct.memoryUse())
                 tempo = fim - inicio

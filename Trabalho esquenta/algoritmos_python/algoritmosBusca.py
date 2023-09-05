@@ -26,7 +26,6 @@ def buscaQuadratica(vet, posicao, entrou, contador, numeroProcurado):
         :param vet: parâmetro que recebe um array com os dados para realizar a busca
         :param posicao: parâmetro com o valor a ser pesquisado
     '''
-
     for i in range(len(vet)):
         j = i
         while(j < len(vet)):
@@ -89,14 +88,6 @@ def buscaTernaria(vet, numeroProcurado, n):
             fim = meio_direito - 1
     
     return -1
-
-def pesquisaBinariaAux(vet, numeroProcurado, e, d):
-    meio = (e + d) / 2
-    meio = int(meio)
-    if(vet[meio] == numeroProcurado):
-        return vet[meio]
-    if(e >= d):
-        return 'oi'
 
 def pesquisaBinaria(vet, numeroProcurado, e, d):
     '''
