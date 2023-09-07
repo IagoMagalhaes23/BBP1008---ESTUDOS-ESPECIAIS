@@ -12,7 +12,7 @@ process = psutil.Process()
 
 caminhoOrdenados = '../ordenados/ordenados/'
 caminhoNOrdenados = '../Nao_ordenados/Nao_ordenados/'
-numeroProcurado = 50
+numeroProcurado = 1000
 posicao = -1
 media = []
 memoria = []
@@ -32,7 +32,7 @@ for arq in arquivosOrdenadosLidos:
             vet = fct.carregaArquivo(arq)
             # vet = [1,2,3,4,5,6,7,10,30,50]
             mediaTempo = 0
-            for i in range(0,2):
+            for i in range(0,10):
                 inicio = time.time()
                 a = alg.pesquisaBinaria(vet[0], numeroProcurado, 0, len(vet[0]) - 1)
                 print(a)
