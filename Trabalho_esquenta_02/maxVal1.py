@@ -9,7 +9,7 @@ import functions as fct
 
 process = psutil.Process()
 
-caminhoNOrdenados = '../Nao_ordenados/Nao_ordenados/'
+caminhoNOrdenados = '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/'
 numeroProcurado = 0
 posicao = -1
 media = []
