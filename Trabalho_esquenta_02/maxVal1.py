@@ -29,16 +29,16 @@ def maxVal(A, n):
 for arq in arquivosNOrdenadosLidos:
     print('Arquivo lido {}'.format(arq))
     if(
-        arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/1000000.txt'
-        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/5000000.txt'
-        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/10000000.txt'
-        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/100000000.txt'
+        arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/1000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/5000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/10000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/100000000.txt'
     ):
         pass
     else:
         try:
             vet = fct.carregaArquivo(arq)
-            print(len(vet[0]))
+            # print(len(vet[0]))
             mediaTempo = 0
             for i in range(0,10):
                 inicio = time.time()

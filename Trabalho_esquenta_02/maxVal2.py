@@ -18,9 +18,6 @@ memoria = []
 arquivosNOrdenadosLidos = fct.listFiles(caminhoNOrdenados)
 
 def maxVal(A, init, end):
-    print(len(A))
-    print(init)
-    print(end)
     if((end - init) <= 1):
         return max(A[init], A[end])
     else:
@@ -32,10 +29,10 @@ def maxVal(A, init, end):
 for arq in arquivosNOrdenadosLidos:
     print('Arquivo lido {}'.format(arq))
     if(
-        arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/1000000.txt'
-        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/5000000.txt'
-        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/10000000.txt'
-        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/100000000.txt'
+        arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/1000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/5000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/10000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/100000000.txt'
     ):
         pass
     else:
@@ -43,7 +40,7 @@ for arq in arquivosNOrdenadosLidos:
             vet = fct.carregaArquivo(arq)
             vetor = vet[0]
             mediaTempo = 0
-            print(len(vetor))
+            # print(len(vetor))
             for i in range(0,10):
                 inicio = time.time()
                 maximo = maxVal(vetor, vetor[0], vetor[-1])
