@@ -9,13 +9,13 @@ public class NaoOrdenado {
 		Random gerador = new Random();
 		
 		int cont =0;
-		for (int i = 0; i < 100000000; i++) {
+		for (int i = 0; i < 100000; i++) {
 			
 			if(cont < 9) {
-				System.out.print(gerador.nextInt(1000) + ",");
+				System.out.print(gerador.nextInt(100000) + ",");
 				cont++;
 			}else {
-				System.out.println(gerador.nextInt(1000) + " ");
+				System.out.println(gerador.nextInt(100000) + " ");
 				cont=0;
 			}
 				
