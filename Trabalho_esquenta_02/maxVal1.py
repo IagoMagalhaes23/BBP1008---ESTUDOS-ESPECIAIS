@@ -38,10 +38,12 @@ for arq in arquivosNOrdenadosLidos:
     else:
         try:
             vet = fct.carregaArquivo(arq)
+            print(len(vet[0]))
             mediaTempo = 0
-            for i in range(0,2):
+            for i in range(0,10):
                 inicio = time.time()
-                maxVal(vet[0], len(vet[0]))
+                maximo = maxVal(vet[0], len(vet[0]))
+                print(maximo)
                 fim = time.time()
                 memoria.append(fct.memoryUse())
                 tempo = fim - inicio
@@ -59,3 +61,7 @@ for arq in arquivosNOrdenadosLidos:
 print('Ánalise dos resultados')
 print('Média de tempo: {}'.format(media))
 print('Consumo de memória: {}'.format(memoria))
+
+"""
+
+"""

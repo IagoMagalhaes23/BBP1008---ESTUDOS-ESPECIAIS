@@ -10,8 +10,6 @@ import functions as fct
 process = psutil.Process()
 
 caminhoNOrdenados = '../Trabalho_esquenta_01/Nao_ordenados/Nao_ordenados/'
-numeroProcurado = 0
-posicao = -1
 media = []
 memoria = []
 
@@ -20,10 +18,13 @@ memoria = []
 arquivosNOrdenadosLidos = fct.listFiles(caminhoNOrdenados)
 
 def maxVal(A, init, end):
+    print(len(A))
+    print(init)
+    print(end)
     if((end - init) <= 1):
         return max(A[init], A[end])
     else:
-        m = (init + end) / 2
+        m = (init + end) // 2
         v1 = maxVal(A, init, m)
         v2 = maxVal(A, m+1, end)
         return max(v1, v2)
@@ -40,10 +41,13 @@ for arq in arquivosNOrdenadosLidos:
     else:
         try:
             vet = fct.carregaArquivo(arq)
+            vetor = vet[0]
             mediaTempo = 0
-            for i in range(0,2):
+            print(len(vetor))
+            for i in range(0,10):
                 inicio = time.time()
-                maxVal(vet[0], len(vet[0]))
+                maximo = maxVal(vetor, vetor[0], vetor[-1])
+                print(maximo)
                 fim = time.time()
                 memoria.append(fct.memoryUse())
                 tempo = fim - inicio
@@ -61,3 +65,7 @@ for arq in arquivosNOrdenadosLidos:
 print('Ánalise dos resultados')
 print('Média de tempo: {}'.format(media))
 print('Consumo de memória: {}'.format(memoria))
+
+"""
+
+"""
