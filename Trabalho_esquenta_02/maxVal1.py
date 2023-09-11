@@ -6,11 +6,9 @@ import time
 import os, psutil
 import pandas as pd
 import functions as fct
-import algoritmosBusca as alg
 
 process = psutil.Process()
 
-caminhoOrdenados = '../ordenados/ordenados/'
 caminhoNOrdenados = '../Nao_ordenados/Nao_ordenados/'
 numeroProcurado = 0
 posicao = -1
@@ -19,13 +17,23 @@ memoria = []
 
 #-----------------------------------------------
 # INICIANDO ÁNALISE DO ALGORITMO
-
-arquivosOrdenadosLidos = fct.listFiles(caminhoOrdenados)
 arquivosNOrdenadosLidos = fct.listFiles(caminhoNOrdenados)
 
-for arq in arquivosOrdenadosLidos:
+def maxVal(A, n):
+    max = A[0]
+    for i in range(n):
+        if(A[i] > max):
+            max = A[i]
+    return max
+
+for arq in arquivosNOrdenadosLidos:
     print('Arquivo lido {}'.format(arq))
-    if(arq == '../ordenados/ordenados/1000000.txt' or arq == '../ordenados/ordenados/5000000.txt' or arq == '../ordenados/ordenados/10000000.txt' or arq == '../ordenados/ordenados/100000000.txt'):
+    if(
+        arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/1000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/5000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/10000000.txt'
+        or arq == '../Trabalho_esquenta_01/Nao_ordenados/Na0_ordenados/100000000.txt'
+    ):
         pass
     else:
         try:
@@ -33,21 +41,14 @@ for arq in arquivosOrdenadosLidos:
             mediaTempo = 0
             for i in range(0,2):
                 inicio = time.time()
-                a = alg.buscaSequencialv1(vet[0], numeroProcurado)
+                maxVal(vet[0], len(vet[0]))
                 fim = time.time()
                 memoria.append(fct.memoryUse())
                 tempo = fim - inicio
                 tempo = float(tempo)
                 mediaTempo = mediaTempo + tempo
 
-            # print(mediaTempo)
             media.append(mediaTempo / 10)
-            # df = pd.DataFrame({
-            #     'tempo de processamento': media,
-            #     'memoria': memoria,
-            #     'arquivo': arq
-            # })
-            # df.to_csv('{}.csv'.format(arq))
         except:
             print('Erro de memória')
 
@@ -58,15 +59,3 @@ for arq in arquivosOrdenadosLidos:
 print('Ánalise dos resultados')
 print('Média de tempo: {}'.format(media))
 print('Consumo de memória: {}'.format(memoria))
-
-'''
-Resultados ordenados
-
-
-'''
-
-'''
-Resultados não ordenados
-
-
-'''
